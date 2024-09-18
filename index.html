@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="css/estilo.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jersey+20&family=Playpen+Sans&family=Young+Serif&display=swap" />
+    <link rel="stylesheet" href="https://unpkg.com/css.gg@2.0.0/icons/css/search.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"crossorigin="anonymous"/>
+  </head>
+
+  <body>
+    
+    <header>
+      <div class="divImg">
+        <img src="img/hero-img.png" alt="logo" class="imgLog" />
+      </div>
+      <!--<div class="titulo">
+    <h1><span class="pokeLeft">Poke</span><samp class="pokeRight">dex</samp></h1> 
+</div> -->
+
+<!--buscador-->
+    <div class="searchBar">
+        <label for="searchInput" class="searchTitle">Nombre o Numero</label>
+        <input type="search" id="searchInput" />
+        <button class="searchButton" id="searchButton"><i class="fas fa-search"></i></button>
+
+        <div class="paragraph">
+        <p class="searchText">
+            Sumergete en la busqueda de tu pokemon favorito por sus hablidades,
+            tipos y toda la informacion que necesites.
+        </p>
+        </div>
+
+    </div>
+    </header>
+
+<main>
+    <!--seccion de categorias-->
+    <div class="sectionCategory">
+    <div class="randomButton">
+        <button id="randomButton">Pokemon Random</button>
+    </div>
+
+        <div class="category">
+        <label for="searchA-Z">Buscar por:</label>
+        <select name="selection" id="searchA-Z">
+            <option value="id-asc">Numero inferior</option>
+            <option value="id-desc">Numero superior</option>
+            <option value="name-asc">a-z</option>
+            <option value="name-desc">z-a</option>
+        </select>
+        </div>
+      </div>
+
+      <p class="text">Filtros por tipos:</p>
+      <div id="filterContainer" class="filterContainer active">
+        <ul>
+          <li class="filterType"><button class="filterButton" id="all">Ver todos</button></li>
+          <li class="filterType"><button class="filterButton normal" id="normal">Normal</button></li>
+          <li class="filterType"><button class="filterButton bug" id="bug">Bicho</button></li>
+          <li class="filterType"><button class="filterButton fairy" id="fairy">Hada</button></li>
+          <li class="filterType"><button class="filterButton dragon" id="dragon">Dragon</button></li>
+          <li class="filterType"><button class="filterButton fire" id="fire">Fuego</button></li>
+          <li class="filterType"><button class="filterButton ghost" id="ghost">Fantasma</button></li>
+          <li class="filterType"><button class="filterButton ground" id="ground">Tierra</button></li>
+          <li class="filterType"><button class="filterButton psychic" id="psychic">Psiquico</button></li>
+          <li class="filterType"><button class="filterButton steel" id="steel">Acero</button></li>
+          <li class="filterType"><button class="filterButton dark" id="dark">Siniestro</button></li>
+          <li class="filterType"><button class="filterButton electric" id="electric">Electrico</button></li>
+          <li class="filterType"><button class="filterButton fighting" id="fighting">Lucha</button></li>
+          <li class="filterType"><button class="filterButton flying" id="flying">Volador</button></li>
+          <li class="filterType"><button class="filterButton grass" id="grass">Planta</button></li>
+          <li class="filterType"><button class="filterButton ice" id="ice">Hielo</button></li>
+          <li class="filterType"><button class="filterButton poison" id="poison">Veneno</button></li>
+          <li class="filterType"><button class="filterButton rock" id="rock">Roca</button></li>
+          <li class="filterType"><button class="filterButton water" id="water">Agua</button></li>
+        </ul>
+      </div>
+
+      <!--[caja pokemon]-->
+      <div class="pokemonList" id="pokemonList">
+        <div class="pokemonBox active" id="pokemonBoxTemplate">
+          <p class="pokemonIdBack" data-pokemon-id-back>#001</p>
+          <div class="imgPoke">
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+              alt="img del pokemon"
+              data-pokemon-image
+            />
+          </div>
+          <div class="pokeInfo">
+            <div class="idPokemon" data-pokemon-id>#001</div>
+            <div class="namePoke" data-pokemon-name>Bulbasaur</div>
+            <div class="experience" data-pokemon-exp>Exp: 64</div>
+            <div class="pokeTypes" data-pokemon-types>
+              <div class=" grass type" data-pokemon-type>Planta</div>
+              <div class="poison type" data-pokemon-type>Planta</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <dialog class="infoContainer" id="infoContainer">
+        <div class="img">
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+            alt="img del pokemon"
+            data-info-image
+          />
+        </div>
+
+        <div class="infoDetails">
+          <p class="pokeData" data-info-name></p>
+          <p class="pokeData" data-info-types></p>
+          <div class="dataBox">
+            <div class="height">Altura: 0,7 m</div>
+            <div class="weight">Peso: 6,5 kg</div>
+            <div class="category">Categoria: semilla</div>
+            <div class="ability">Habilidad: Espesura</div>
+          </div>
+        </div>
+
+        <div class="weaknessPoke">
+          <h3 class="infoTitle">Debilidades:</h3>
+          <div class="weakness fire type">fuego</div>
+          <div class="weakness ice type">Hielo</div>
+          <div class="weakness flying type">Volador</div>
+          <div class="weakness psychic type">Psiquico</div>
+        </div>
+        <button class="closeButton" id="closeButton">Cerrar</button>
+      </dialog>
+
+      <!--[btn Ver mas]-->
+      <div class="loadMoreContainer">
+        <button class="loadMoreButton" id="loadMoreButton">Ver mas</button>
+      </div>
+
+</main>
+
+    <script type="module" src="js/app.js"></script>
+  </body>
+</html>
